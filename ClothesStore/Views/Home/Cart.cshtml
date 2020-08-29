@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ClothesStore.Models.product_user>
+
+@{
+    ViewBag.Title = "Cart";
+}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home", null, null)</li>
+    <li class="breadcrumb-item text-muted active" aria-current="page">Cart</li>
+  </ol>
+</nav>
+
+<section class="container cartPage">
+    <table class="table">
+       <thead>
+           <tr>
+               <th>IMAGE</th>
+               <th>NAME</th>
+               <th>PRICE</th>
+               <th>QUANTITY</th>
+               <th>TOTAL</th>
+               <th>ACTION</th>
+           </tr>
+       </thead>
+       <tbody>
+           @foreach (var item in Model)
+           {
+               <tr>
+                   <td><img src="~/Uploads/@item.Product.Prod_Image" height="150" width="150" /></td>
+                   <td>@item.Product.Prod_Name</td>
+                   <td>$ @item.Prodcut_Price</td>
+                   <td>
+                       <div class="cartPage_prodQuan">
+                           <input type="hidden" value="@item.id" />
+                           <button type="button" class="productUserCartInc btn border border-dark font-weight-bold text-center" style="width: 35px;height: 30px;line-height: 1.1">+</button>
+                           <span class="productUserCartNumber border border-dark font-weight-bold text-center btn" style="width: 35px;height: 30px;line-height: 1.1;cursor: auto">@item.Product_Quantity</span>
+                           <button type="button" class="productUserCartDec btn border border-dark font-weight-bold text-center" style="width: 35px;height: 30px;line-height: 1.1">-</button>
+                       </div>
+                   </td>
+                   <td class="totalPriceCell">$ <span>@item.Product_totalPrice</span></td>
+                   <td>
+                       <a href="/Home/DeleteCurrentCart/@item.id" class="text-dark"><i class="fas fa-trash-alt"></i></a>
+                   </td>
+               </tr>
+           }
+       </tbody>
+    </table><hr />
+
+    <!-- Total prcie and actions -->
+    <h1 class="text-right font-weight-bold cartTotal">$ <span>@ViewBag.totalCart</span></h1>
+
+    <div class="row mt-5">
+        <div class="col">
+            @Html.ActionLink("Continue Shopping", "index", "Home", null, new { @class= "btn d-block continueShop" })
+        </div>
+        <div class="col">
+            @Html.ActionLink("Check Out", "payment", "Home", null, new { @class= "btn d-block checkOut" })
+        </div>
+    </div>
+</section>

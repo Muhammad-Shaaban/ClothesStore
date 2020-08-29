@@ -1,0 +1,51 @@
+﻿
+<section class="addToCart container">
+    @using (Html.BeginForm("addToCart", "Home", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <input name="productID" class="addCart_ProdId" type="hidden" />
+        <input name="productQuantity" class="addCart_prodQuan" type="hidden" />
+        <input name="productPrice" class="addCart_prodPrice" type="hidden" />
+        <input name="productTotalPrice" class="addCart_prodTotalp" type="hidden" />
+        <input name="ProductCategory" class="addCart_prodCategory" type="hidden" value="@ViewBag.CollectionName"/>
+
+        <div class="row">
+            <div class="col-md-4">
+                <img src="" width="300" height="400" />
+            </div>
+            <div class="col-md-7 offset-md-1">
+                <h2 class="text-muted font-weight-bold mt-3 mb-4"></h2>
+                <p class="text-uppercase AVAILABILITY">availability <span class="text-capitalize ml-5"></span></p>
+                <p class="text-uppercase mb-5">product type <span class="text-capitalize ml-4 ">@ViewBag.CollectionName</span></p>
+                <h1 class="text-muted font-weight-bold productPrice">$ <span></span></h1>
+
+                <!-- Sizes -->
+                <p class="text-uppercase mt-3" style="font-size: 15px">size</p>
+                <div class="addToCart_sizes mb-5" style="margin-top: -10px">
+                    <span class="s">S</span>
+                    <span class="m">M</span>
+                    <span class="l">L</span>
+                    <span class="xl">XL</span>
+                    <span class="2xl">2XL</span>
+                    <span class="3xl">3XL</span>
+                    <span class="4xl">4XL</span>
+                </div>
+
+                <!-- Quantity -->
+                <p class="text-uppercase mt-3" style="font-size: 15px">quantity</p>
+                <div class="addToCart_qiantity">
+                    <button type="button">-</button>
+                    <span>1</span>
+                    <button type="button">+</button>
+                </div>
+
+                <!-- Total -->
+                <p class="text-uppercase font-weight-bold mt-3 mb-1" style="font-size: 15px;text-decoration: underline">sub - total</p>
+                <span class="total font-italic text-muted font-weight-bold">$ <span>5000</span></span>
+
+                <input type="submit" value="+ add to cart" class="btn text-uppercase btn-block mt-4 mb-4" />
+            </div>
+        </div>
+     }
+</section>

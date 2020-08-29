@@ -1,0 +1,145 @@
+﻿@model IEnumerable<ClothesStore.Models.Product>
+
+@{
+    ViewBag.Title = "Collection";
+}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home", null, null)</li>
+    <li class="breadcrumb-item text-muted active" aria-current="page">Collection</li>
+  </ol>
+</nav>
+
+
+<section class="collectionPage container">
+    <h4 class="text-uppercase text-center">@ViewBag.CollectionName collection</h4>
+
+    <!-- Filter By -->
+    <div class="filterBy">
+        <div class="row">
+            <div class="col-md-4">
+                <span class="text-white text-center d-block font-weight-bold mb-3">Filter by Price</span>
+                <div class="price position-relative">
+                    @Html.ActionLink("Price Low to High", "Collection", "Home", new { collection = ViewBag.CollectionName, filterType = 1 }, new { @class = "btn" })
+                    @Html.ActionLink("Price High to Low", "Collection", "Home", new { collection = ViewBag.CollectionName, filterType = 2 }, new { @class = "btn" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <span class="text-white text-center d-block font-weight-bold mb-3">Filter by Alphabetic</span>
+                <div class="alphabetic position-relative">
+                    @Html.ActionLink("Alphabetically, A to Z", "Collection", "Home", new { collection = ViewBag.CollectionName, filterType = 3 }, new { @class = "btn" })
+                    @Html.ActionLink("Alphabetically, Z to A", "Collection", "Home", new { collection = ViewBag.CollectionName, filterType = 4 }, new { @class = "btn" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <span class="text-white text-center d-block font-weight-bold mb-3">Filter by Size</span>
+                <div class="date">
+                    @Html.ActionLink("s", "Collection", "Home", new { collection = ViewBag.CollectionName, filterType = 5 }, new { @class = "btn" })
+                    @Html.ActionLink("m", "Collection", "Home", new { collection = ViewBag.CollectionName, filterType = 6 }, new { @class = "btn" })
+                    @Html.ActionLink("l", "Collection", "Home", new { collection = ViewBag.CollectionName, filterType = 7 }, new { @class = "btn" })
+                    @Html.ActionLink("xl", "Collection", "Home", new { collection = ViewBag.CollectionName, filterType = 8 }, new { @class = "btn" })
+                    @Html.ActionLink("2xl", "Collection", "Home", new { collection = ViewBag.CollectionName, filterType = 9 }, new { @class = "btn" })
+                    @Html.ActionLink("3xl", "Collection", "Home", new { collection = ViewBag.CollectionName, filterType = 10 }, new { @class = "btn" })
+                    @Html.ActionLink("4xl", "Collection", "Home", new { collection = ViewBag.CollectionName, filterType = 11 }, new { @class = "btn" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filtered -->
+    <section class="filtered">
+        <div class="row">
+            <!--<div class="col-md-3">
+                <form method="post">
+                    <!--<div class="row">
+                        <div class="filtered_categories">
+                            <h6 class="text-uppercase font-weight-bold">categories</h6>
+
+                            <div class="form-group mb-0">
+                                <input type="checkbox" name="filterByCategory" value="wedding" />
+                                <label>Wedding</label>
+                            </div>
+                            <div class="form-group mb-0">
+                                <input type="checkbox" name="filterByCategory" value="jeans" />
+                                <label>Jeans</label>
+                            </div>
+                            <div class="form-group mb-0">
+                                <input type="checkbox" name="filterByCategory" value="underwear" />
+                                <label>Underwear</label>
+                            </div>
+                            <div class="form-group mb-0">
+                                <input type="checkbox" name="filterByCategory" value="jilbab" />
+                                <label>Jilbab</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="filtered_sizes">
+                            <h6 class="text-uppercase font-weight-bold">sizes</h6>
+
+                            <div class="form-group mb-0">
+                                <input type="checkbox" name="filterBySize" value="s" />
+                                <label>S</label>
+                            </div>
+                            <div class="form-group mb-0">
+                                <input type="checkbox" name="filterBySize" value="m" />
+                                <label>M</label>
+                            </div>
+                            <div class="form-group mb-0">
+                                <input type="checkbox" name="filterBySize" value="l" />
+                                <label>L</label>
+                            </div>
+                            <div class="form-group mb-0">
+                                <input type="checkbox" name="filterBySize" value="xl" />
+                                <label>XL</label>
+                            </div>
+                            <div class="form-group mb-0">
+                                <input type="checkbox" name="filterBySize" value="2xl" />
+                                <label>2XL</label>
+                            </div>
+                            <div class="form-group mb-0">
+                                <input type="checkbox" name="filterBySize" value="3xl" />
+                                <label>3XL</label>
+                            </div>
+                            <div class="form-group mb-0">
+                                <input type="checkbox" name="filterBySize" value="4xl" />
+                                <label>4XL</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input type="submit" class="btn btn-outline-info btn-block mt-3 mb-3" value="Filter" />
+                </form>
+            </div>-->
+            <div class="col-md-12">
+                <div class="filtered_result">
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-lg-3 col-md-6 col-sm-6 buyProdcut">
+                                <input type="hidden" class="buyProdcut_id" value="@item.id"/>
+                                <input type="hidden" class="buyProdcut_size" value="@item.Size.SizeName" />
+                                <input type="hidden" class="buyProdcut_quantity" value="@item.Prod_Quantity" />
+
+                                <img src="~/Uploads/@item.Prod_Image" alt="Alternate Text" />
+                                <div class="ml-2 text-muted font-weight-bold">
+                                    <p>@item.Prod_Name</p>
+                                    <p>$ <span>@item.Prod_Price</span></p>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+<div class="buyProdcutPage">
+    <div class="buyProdcutCart">
+        <i class="fas fa-times d-block text-right mr-3 mt-3 text-muted"></i>
+        @Html.Partial("_buyProduct" )
+    </div>
+</div>

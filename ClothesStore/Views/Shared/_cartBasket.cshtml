@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ClothesStore.Models.product_user>
+
+<i class="fas fa-shopping-cart ml-1 mr-3 checkoutIcon" style="font-size: 20px;margin-top: 12px;cursor: pointer"></i>
+<span class="badge badge-dark">@ViewBag.totalCartCount</span>
+
+<!-- Start Checkout Your Items -->
+<section class="checkOutSection showOrHideC">
+    <!-- Checkout Header -->
+    <div class="row mt-2" style="margin-bottom: -15px">
+        <div class="col">
+            <span><i class="fas fa-cart-plus"></i> Shopping Cart</span>
+        </div>
+        <div class="col">
+
+            <p class="text-right"><span class="font-weight-bold">@ViewBag.totalCartCount</span> Items</p>
+        </div>
+    </div><hr />
+
+    <!-- Checkout Body -->
+    @foreach (var item in Model)
+    {
+        <div class="row cartBasket">
+            <div class="col">
+                <dvi class="row">
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col">
+                                <img src="~/Uploads/@item.Product.Prod_Image" class="" width="120" height="120" />
+                            </div>
+                            <div class="col">
+                                <div class="productInfo mt-3">
+                                    <p class="productName"> @item.Product.Prod_Name</p>
+                                    <p class="productPrice"><span>@item.Prodcut_Price</span> $</p>
+                                    <p class="productCount mt-2">
+                                        <input type="hidden" value="@item.id" />
+                                        <button class="btn productUserCartInc">+</button>
+                                        <span class="productUserCartNumber border border-dark" style="padding: 2px 10px; border-radius: 5px;">@item.Product_Quantity</span>
+                                        <button class="productUserCartDec btn">-</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-center">
+                        <i class="fas fa-trash-alt basktDelete" data-prodID="@item.id" style="line-height: 6;cursor: pointer" title="Delete" data-toggle="tooltip" data-placement="left"></i>
+                    </div>
+                </dvi>
+            </div>
+        </div>
+        <hr />
+    }
+
+    <!-- Checkout Footer -->
+    <div class="checkoutFooter text-center font-weight-bold">
+        <p class="text-uppercase">total<span class="ml-3 cartTotal">@ViewBag.totalCartForBasket</span> $</p>
+        @Html.ActionLink("View Cart", "Cart", "Home", null, new { @class = "btn" })
+        @Html.ActionLink("Check Out", "#", null, new { @class = "btn" })
+    </div>
+
+</section>
+
+

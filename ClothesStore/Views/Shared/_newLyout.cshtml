@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>@ViewBag.Title</title>
+
+        <!-- Style Files -->
+        <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/Content/all.css" />
+        <link rel="stylesheet" href="~/Content/style_admin.css" />
+        <link rel="stylesheet" href="~/Content/owl.carousel.min.css" />
+
+        <link rel="icon" href="~/images/LOGO2.jpeg" />
+
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a href="/Admin" class="navbar-brand mr-4">Admin</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarnav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav">
+                    <!--<li class="navbar-item">
+                        <a href="#" class="nav-link">Prodcuts</a>
+                    </li>-->
+                </ul>
+
+                <!-- Authentication and User Interactions -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="navbar-item dropdown">
+                        <a href="" class="nav-link dropdown-toggle mr-5" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="ml-2">email</span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <button class="dropdown-item" style="cursor: pointer;">Logout</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="container">
+            @RenderBody()
+        </section>
+
+        <!-- Script Files -->
+        <script src="~/Scripts/jquery-3.5.1.min.js"></script>
+        <script src="~/Scripts/popper.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/owl.carousel.min.js"></script>
+        <script src="~/Scripts/app.js"></script>
+
+    </body>
+</html>
+

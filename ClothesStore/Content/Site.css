@@ -1,0 +1,560 @@
+﻿*{font-family: Arial}
+
+/* Global Styles */
+.navbar-light .navbar-brand, .navbar-light .navbar-nav a.nav-link, .navbar-light .navbar-nav i {
+    color: #213C53
+}
+
+.navbar-light .navbar-brand span {
+    color: #00FB91;
+}
+
+.navbar-light .navbar-nav .badge {
+    position: absolute;
+    left: 20px;
+    top: -1px;
+    border-radius: 20px
+}
+
+
+/* Search Icon */
+.navbar-light .navbar-nav .search_form {
+    position: absolute;
+    top: 45px;
+    left: -187px;
+    width: 300px;
+    z-index: 9999
+}
+
+.navbar-light .navbar-nav .search_form::before{
+    content: '';
+    position: absolute;
+    right: 25%;
+    top: -37%;
+    height: 0;
+    width: 0;
+    border-width: 10px;
+    border-style: solid;
+    border-color:  transparent transparent #e0e0e0
+}
+
+.navbar-light .navbar-nav .search_form .form-control {
+    background-color: #F7F3FF;
+    box-shadow: none
+}
+
+.navbar-light .navbar-nav .search_form button{
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+.navbar-light .navbar-nav .search_form.hideOrShow{display: none}
+
+/* Checkout Icon */
+.checkOutSection {
+    width: 360px;
+    min-height: 400px;
+    background-color: #F7F3FF;
+    padding: 10px;
+    border: 1px solid #fff;
+    position: absolute;
+    top: 50px;
+    left: -310px;
+    z-index: 999
+}
+.checkOutSection.showOrHideC{display: none}
+.checkOutSection .productInfo{margin-left: -20px}
+
+.checkOutSection .productInfo p{margin: 0;margin-bottom: 5px}
+
+.checkOutSection .productInfo button{
+    width: 35px;
+    height: 20px;
+    background-color: #fff;
+    line-height: .5;
+    text-align: center;
+    border-color: rgba(0,0,0, 0.4);
+    font-weight: bold;
+}
+
+.checkOutSection .checkoutFooter a{
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #000;
+    margin-bottom: 10px
+}
+
+.checkOutSection .checkoutFooter a:last-of-type{background-color: #405E8A;color: #fff}
+
+.checkOutSection::before{
+    content: '';
+    position: absolute;
+    right: 6%;
+    top: -3%;
+    height: 0;
+    width: 0;
+    border-width: 10px;
+    border-style: solid;
+    border-color:  transparent transparent #e0e0e0
+}
+
+/* Footer */
+.footer{background-color: #F8F8F8}
+.footer div:first-of-type p{color: #213C53} 
+.footer div:first-of-type p span{color: #00FB91}
+
+.footer h5{
+    text-transform: uppercase;
+    color: #213C53;
+    font-weight: bold;
+    margin-top: 20px
+}
+
+.footer ul li{list-style: none;text-transform: capitalize;margin-bottom: 5px}
+
+/* Media Query for _Loyout */
+@media(max-width: 991px) {
+    .navbar-light .navbar-nav .search_form {
+        left: 50px;
+        margin-top: -42px;
+    }
+    .navbar-light .navbar-nav .search_form::before{
+        right: 100%;
+        top: 8px;
+        border-width: 10px;
+        border-style: solid;
+        border-color:  transparent #e0e0e0 transparent transparent
+    }
+
+    .checkOutSection{
+        left: 0
+    }
+
+    .checkOutSection::before{
+        right: 93%
+    }
+}
+
+
+/* Start Home Page */
+.homePage .home_background {
+    width: 100%;
+    height: 853px;
+    background: url('../images/Background.jpeg') no-repeat center center;
+    background-size: cover
+}
+
+.homePage .wedding_section::before,
+.homePage .jeans_section::before,
+.homePage .underwear_section::before,
+.homePage .jilbab_section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 25px;
+    height: 8px;
+    width: 20%;
+    background-color: #405E8A
+}
+
+.homePage .wedding_section::after,
+.homePage .jeans_section::after,
+.homePage .underwear_section::after,
+.homePage .jilbab_section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 25px;
+    height: 15%;
+    width: 8px;
+    background-color: #405E8A
+}
+
+.homePage .underwear_section::before, .homePage .underwear_section::after{background-color: #D9457E}
+.homePage .jilbab_section::before, .homePage .jilbab_section::after{background-color: #62707A}
+
+.homePage .wedding_section h4,
+.homePage .jeans_section h4,
+.homePage .underwear_section h4,
+.homePage .jilbab_section h4 {
+    color: #405E8A;
+    width: 25%;
+    margin: 70px auto;
+    padding: 15px;
+    border: 6px solid #405E8A;
+}
+
+.homePage .underwear_section h4{border-color: #D9457E;color: #D9457E}
+.homePage .jilbab_section h4 {border-color: #62707A; color: #62707A}
+
+.homePage .wedding_section div.item,
+.homePage .jeans_section div.item,
+.homePage .underwear_section div.item,
+.homePage .jilbab_section div.item {
+    width: 200px;
+    height: 250px;
+    margin: 10px auto;
+    box-shadow: 1px 7px 20px 0px rgba(0,0,0,0.5);
+    position: relative
+}
+
+.homePage .wedding_section div.item img,
+.homePage .jeans_section div.item img,
+.homePage .underwear_section div.item img,
+.homePage .jilbab_section div.item img{
+    width: 200px;
+    height: 250px;
+}
+
+.homePage .wedding_section div.item .wedding_section_hover,
+.homePage .jeans_section div.item .jeans_section_hover,
+.homePage .underwear_section div.item .underwear_section_hover,
+.homePage .jilbab_section div.item .jilbab_section_hover{
+    position: absolute;
+    top: -280px;
+    left: 0;
+    width: 200px;
+    height: 250px;
+    background-color: rgba(0,0,0,.4);
+    transition: .5s
+}
+
+.homePage .wedding_section div.item .wedding_section_hover i, 
+.homePage .jeans_section div.item .jeans_section_hover i,
+.homePage .underwear_section div.item .underwear_section_hover i,
+.homePage .jilbab_section div.item .jilbab_section_hover i{
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    text-align: center;
+    line-height: 2;
+    border-radius: 20px;
+    margin-left: 83%;
+}
+
+.homePage .wedding_section div.item:hover .wedding_section_hover,
+.homePage .jeans_section div.item:hover .jeans_section_hover,
+.homePage .underwear_section div.item:hover .underwear_section_hover,
+.homePage .jilbab_section div.item:hover .jilbab_section_hover{top: 0}
+
+.homePage .wedding_section a,
+.homePage .jeans_section a,
+.homePage .underwear_section a,
+.homePage .jilbab_section a{
+    width: 10%;
+    background-color: #405E8A;
+    color: #fff;
+    margin: 0 auto;
+    margin-top: -1%;
+    display: block;
+    transition: .5s
+}
+
+.homePage .underwear_section a{background-color: #D9457E}
+.homePage .jilbab_section a{background-color: #62707A}
+
+.homePage .wedding_section a:hover,
+.homePage .jeans_section a:hover{background-color: rgba(64, 94, 138, .9)}
+
+.homePage .underwear_section a:hover{background-color: rgba(217, 69, 126, .9)}
+.homePage .jilbab_section a:hover{background-color: rgba(98, 112, 122, .9)}
+
+/*Media Query for Home*/
+@media(max-width: 991px) {
+    .homePage .home_background{height: 400px}
+
+    .homePage .wedding_section h4,
+    .homePage .jeans_section h4,
+    .homePage .underwear_section h4,
+    .homePage .jilbab_section h4{width: 100%}
+
+    .homePage .wedding_section a,
+    .homePage .jeans_section a,
+    .homePage .underwear_section a,
+    .homePage .jilbab_section a{width: 30%}
+}
+
+
+/*Start Collection Page*/
+.collectionPage h4 {
+    color: #405E8A;
+    width: 30%;
+    margin: 30px auto;
+    padding: 15px;
+    border: 6px solid #405E8A;
+}
+
+.collectionPage .filterBy{
+    padding: 15px 30px;
+    background-color: #405E8A;
+}
+
+.collectionPage .filterBy a{
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, .5);
+    margin-right: 5px;
+    font-size: 13px
+}
+
+.collectionPage .filterBy .price::before,
+.collectionPage .filterBy .alphabetic::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -15px;
+    width: 2px;
+    height: 185%;
+    background-color: #fff;
+    transform: rotateZ(15deg);
+}
+
+.collectionPage .filterBy a:hover{background-color: #fff;color: #405E8A}
+
+.collectionPage .filtered form .filtered_categories,
+.collectionPage .filtered form .filtered_sizes {
+    border: 1px solid rgba(0,0,0,.5);
+    border-radius: 6px;
+    padding: 15px;
+    width: 100%;
+    margin-left: 15px;
+    margin-top: 10px
+}
+
+.collectionPage .filtered .filtered_result img {
+    display: block;
+    height: 250px;
+    width: 250px;
+    padding: 5px;
+    margin: 10px auto;
+    border: 2px solid #f5f5f5;
+    box-shadow: 8px 9px 20px 0px rgba(0, 0, 0, 0.24);
+    cursor: pointer
+}
+
+/*Buy Product Page*/
+.buyProdcutPage {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.6);
+    z-index: 9999;
+    transform: scale(0);
+    transition: .5s
+}
+
+.buyProdcutPage .buyProdcutCart{
+    width: 50%;
+    height: 730px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.4);
+    margin: 1% auto;
+    overflow-y: scroll
+}
+
+.buyProdcutPage .buyProdcutCart i{font-size: 30px;cursor: pointer}
+
+.buyProdcutPage .buyProdcutCart .addToCart img{
+    display: block;
+    margin: 0 auto;
+    padding: 5px;
+    margin: 10px auto;
+    border: 2px solid #f5f5f5;
+    box-shadow: 8px 9px 20px 0px rgba(0, 0, 0, 0.24);
+}
+
+.buyProdcutPage .buyProdcutCart .addToCart .addToCart_sizes span,
+.buyProdcutPage .buyProdcutCart .addToCart .addToCart_qiantity button,
+.buyProdcutPage .buyProdcutCart .addToCart .addToCart_qiantity span{
+    width: 40px;
+    height: 25px;
+    background: #fff;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,.3);
+    display: inline-block;
+    font-size: 15px
+}
+
+.buyProdcutPage .buyProdcutCart .addToCart .addToCart_sizes span.active{background: #62707A; color: #fff}
+
+.buyProdcutPage .buyProdcutCart .addToCart input[type="submit"]{
+    padding: 10px;
+    color: #fff;
+    background-color: #000;
+    transition: .5s
+}
+
+.buyProdcutPage .buyProdcutCart .addToCart input[type="submit"]:hover{background-color: rgba(0,0,0, .8)}
+
+/*Media Query for Home*/
+@media(max-width: 1200px) {
+    .collectionPage h4{width: 100%}
+
+    .collectionPage .filterBy a{margin-bottom: 15px;}
+
+    .collectionPage .filterBy .price::before,
+    .collectionPage .filterBy .alphabetic::before {
+        display: none
+    }
+
+    .collectionPage .filtered .filtered_result p{text-align: center}
+
+    .buyProdcutPage .buyProdcutCart{width: 90%;height: 650px}
+}
+
+
+/*Start Login Page*/
+.loginPgae #loginForm {
+    box-shadow: 1px 3px 20px 0px rgba(0,0,0, .1);
+    min-height: 400px;
+    text-align: center;
+    padding: 30px 5px;
+    min-width: 360px
+}
+
+.loginPgae form input[type="text"],
+.loginPgae form input[type="password"]{
+    box-shadow: none;
+    background-color: #fff;
+    border: 1px solid #213C53;
+    border-radius: 0;
+    margin: 40px auto;
+    margin-left: 50px
+}
+
+.loginPgae form input[type="submit"]{
+    background-color: #213C53;
+    color: #fff;
+    width: 150px;
+    border-radius: 0;
+}
+
+.loginPgae .rightSide::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #213C53
+}
+
+.loginPgae .rgisterBtn {
+    background-color: #213C53;
+    color: #fff;
+    padding: 10px;
+    width: 300px;
+    border-radius: 0;
+    font-weight: bold;
+}
+
+.contact form{
+    width: 300px;
+    margin: 5px auto;
+}
+.contact form .form-group input{width: 300px;padding: 10px 5px}
+
+.contact form .form-group i{
+    position: absolute;
+    top: 0;
+    right: -60px;
+    width: 60px;
+    height: 48px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    font-size: 25px;
+    line-height: 1.5;
+}
+
+/*Media Query for Login Page*/
+@media(max-width: 991px) {
+    .loginPgae form input[type="text"], .loginPgae form input[type="password"]{margin-left: 0}
+    .loginPgae .rightSide::before{display: none}
+}
+
+
+/*Satart Register Page*/
+.RegisterPage label{font-size: 15px}
+
+.RegisterPage input.form-control, .RegisterPage select.form-control {
+    border-radius: 0;
+    box-shadow: none;
+    border: 2px solid rgba(33, 60, 83, .7);
+}
+
+.RegisterPage input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: 175px;
+    height: 50px;
+    padding: 10px;
+    color: #262626;
+    text-align: center;
+    line-height: 1.4;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    border: 1px dashed #213C53
+}
+
+.RegisterPage input[type="radio"].active{border-style: solid;border-width: 2px}
+
+.RegisterPage input[type="radio"]:first-of-type::before {content: 'MALE'}
+.RegisterPage input[type="radio"]:last-of-type::before {content: 'FEMALE'}
+
+.RegisterPage input[type="submit"] {
+    margin: 40px auto;
+    margin-left: 37%;
+    display: block;
+    text-align: center;
+    width: 400px;
+    background-color: #213C53;
+    color: #fff;
+    border-radius: 0;
+    padding: 10px;
+}
+
+@media(max-width: 991px) {
+    .RegisterPage input[type="radio"]{width: 140px}
+    .RegisterPage input[type="submit"] {
+        margin-left: auto;
+        width: 250px
+    }
+}
+
+/*Start Cart Page*/
+.cartPage a.continueShop {
+    border-radius: 0;
+    background-color: #252934;
+    color: #fff;
+    width: 250px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.cartPage a.checkOut {
+    background-color: #405E8A;
+    color: #fff;
+    border-radius: 0;
+    font-size: 20px;
+    width: 250px;
+    padding: 10px;
+    margin-left: 54%;
+}
+
+@media(max-width: 991px) {
+    .cartPage a.continueShop,
+    .cartPage a.checkOut{margin: 15px auto}
+}

@@ -1,0 +1,9 @@
+﻿.navbar .collapse .dropdown-menu {
+    margin-left: -40px;
+}
+
+@media(max-width: 991px) {
+    .navbar .collapse .dropdown-menu {
+        margin-left: 0;
+    }
+}

@@ -1,0 +1,100 @@
+﻿@model ClothesStore.ViewModel.ProdcutListViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+    <section class="homePage position-relative">
+        <div class="home_background"></div>
+
+        <!-- Wedding Section -->
+        <section class="wedding_section position-relative">
+            <h4 class="text-uppercase text-center">wedding collection</h4>
+            <div class="owl-carousel owl-theme mb-5">
+                @foreach (var wedding in Model.wedding_List)
+                {
+                    <div class="item" style="margin-bottom: 36%">
+                        <img src="~/Uploads/@wedding.Prod_Image" class="img-thumbnail" alt="Alternate Text" />
+                        @if (User.Identity.IsAuthenticated) { 
+                            <!--<div class="wedding_section_hover">
+                                <i class="fas fa-heart" title="Like" data-toggle="tooltip" data-placement="left"></i>
+                                <i class="fas fa-shopping-cart" title="Add To Cart" data-toggle="tooltip" data-placement="left"></i>
+                            </div>-->
+                        }
+                        <p class="text-capitalize mt-3 text-muted font-weight-bold">@wedding.Prod_Name</p>
+                        <p class="font-weight-bold text-muted" style="font-size: 25px"><span>@wedding.Prod_Price </span> $</p>
+                    </div>
+                }
+            </div>
+            @Html.ActionLink("SEE ALL", "Collection", "Home", new { collection = "wedding" }, new { @class = "btn" })
+        </section>
+
+        <!-- Jeans Section -->
+        <section class="jeans_section position-relative">
+            <h4 class="text-uppercase text-center">jeans collection</h4>
+            <div class="owl-carousel owl-theme mb-5">
+                @foreach (var jeans in Model.jeans_List)
+                {
+                    <div class="item" style="margin-bottom: 36%">
+                        <img src="~/Uploads/@jeans.Prod_Image" class="img-thumbnail" alt="Alternate Text" />
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <!--<div class="jeans_section_hover">
+                                <i class="fas fa-heart" title="Like" data-toggle="tooltip" data-placement="left"></i>
+                                <i class="fas fa-shopping-cart" title="Add To Cart" data-toggle="tooltip" data-placement="left"></i>
+                            </div>-->
+                        }
+                        <p class="text-capitalize mt-3 text-muted font-weight-bold">@jeans.Prod_Name</p>
+                        <p class="font-weight-bold text-muted" style="font-size: 25px"><span>@jeans.Prod_Price </span> $</p>
+                    </div>
+                }
+            </div>
+            @Html.ActionLink("SEE ALL", "Collection", new { collection = "jeans" }, new { @class = "btn" })
+        </section>
+
+        <!-- UnderWear Section -->
+        <section class="underwear_section position-relative">
+            <h4 class="text-uppercase text-center">underwear collection</h4>
+            <div class="owl-carousel owl-theme mb-5">
+                @foreach (var underwear in Model.underwear_List)
+                {
+                    <div class="item" style="margin-bottom: 36%">
+                        <img src="~/Uploads/@underwear.Prod_Image" class="img-thumbnail" alt="Alternate Text" />
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <!--<div class="underwear_section_hover">
+                                <i class="fas fa-heart" title="Like" data-toggle="tooltip" data-placement="left"></i>
+                                <i class="fas fa-shopping-cart" title="Add To Cart" data-toggle="tooltip" data-placement="left"></i>
+                            </div>-->
+                        }
+                        <p class="text-capitalize mt-3 text-muted font-weight-bold">@underwear.Prod_Name</p>
+                        <p class="font-weight-bold text-muted" style="font-size: 25px"><span>@underwear.Prod_Price </span> $</p>
+                    </div>
+                }
+            </div>
+            @Html.ActionLink("SEE ALL", "Collection", new { collection = "underwear" }, new { @class = "btn" })
+        </section>
+
+        <!-- Jilbab Section -->
+        <section class="jilbab_section position-relative">
+            <h4 class="text-uppercase text-center">jilbab collection</h4>
+            <div class="owl-carousel owl-theme mb-5">
+                @foreach (var jilbab in Model.jilbab_List)
+                {
+                    <div class="item" style="margin-bottom: 36%">
+                        <img src="~/Uploads/@jilbab.Prod_Image" class="img-thumbnail" alt="Alternate Text" />
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <!--<div class="jilbab_section_hover">
+                                <i class="fas fa-heart" title="Like" data-toggle="tooltip" data-placement="left"></i>
+                                <i class="fas fa-shopping-cart" title="Add To Cart" data-toggle="tooltip" data-placement="left"></i>
+                            </div>-->
+                        }
+                        <p class="text-capitalize mt-3 text-muted font-weight-bold">@jilbab.Prod_Name</p>
+                        <p class="font-weight-bold text-muted" style="font-size: 25px"><span>@jilbab.Prod_Price </span> $</p>
+                    </div>
+                }
+            </div>
+            @Html.ActionLink("SEE ALL", "Collection", new { collection = "jilbab" }, new { @class = "btn" })
+        </section>
+    </section>

@@ -1,0 +1,116 @@
+﻿@model ClothesStore.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home", null, null)</li>
+    <li class="breadcrumb-item text-muted active" aria-current="page">Register</li>
+  </ol>
+</nav>
+
+
+<section class="container RegisterPage">
+    <h1 class="h2 text-center mt-5 mb-4 font-weight-bold text-uppercase" style="color: #213C53;">create an account</h1>
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.FirstName, new { @class = "col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.LastName, new { @class = "col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Phone, new { @class = "col-md-3" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-3" })
+                    <div class="col-md-9">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Gender, new { @class = "col-md-3" })
+                    <div class="col-md-9">
+                        <input type="radio" name="Gender" id="Gender" value="male" />
+                        <input type="radio" name="Gender" id="Gender" value="female" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.detailedAddress, new { @class = "col-md-4" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(m => m.detailedAddress, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Country, new { @class = "col-md-3" })
+                    <div class="col-md-9">
+                        <select class="form-control" name="Country">
+                            <option vlaue="China">China</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Hong Kong">Hong Kong</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Register" />
+            </div>
+        </div>
+
+        <div class="text-center">
+            <p>By clicking Sign Up, you agree to our <span style="color: #00FB91">Terms</span></p>
+            <p style="color: #00FB91">Data Policy <span class="text-dark">and</span> Cookie Policy</p>
+        </div>
+    }
+</section>
+
+@Html.Partial("_contact")

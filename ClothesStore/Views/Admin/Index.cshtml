@@ -1,0 +1,43 @@
+﻿@model IEnumerable<ClothesStore.Models.Product>
+@{
+    Layout = "~/Views/Shared/_newLyout.cshtml";
+    ViewBag.Title = "Admin - Home";
+}
+
+
+<h1 class="mt-5 mb-5 text-center font-weight-bold text-muted">All Prodcuts</h1><hr />
+
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(prod => prod.Prod_Name)</th>
+            <th>@Html.DisplayNameFor(prod => prod.Category.CategoryName)</th>
+            <th>@Html.DisplayNameFor(prod => prod.Size.SizeName)</th>
+            <th>@Html.DisplayNameFor(prod => prod.Prod_Price)</th>
+            <th>@Html.DisplayNameFor(prod => prod.Prod_Quantity)</th>
+            <th>@Html.DisplayNameFor(prod => prod.Prod_Image)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="font-weight-bold">@Html.DisplayFor(prod => item.Prod_Name)</td>
+                <td>@Html.DisplayFor(prod => item.Category.CategoryName)</td>
+                <td>@Html.DisplayFor(prod => item.Size.SizeName)</td>
+                <td>@Html.DisplayFor(prod => item.Prod_Price)</td>
+                <td>@Html.DisplayFor(prod => item.Prod_Quantity)</td>
+                <td>
+                    <img src="~/Uploads/@item.Prod_Image" style="padding: 5px;border: 4px solid #f7f7f7" width="110" height="110" alt="@item.Prod_Name" title="@item.Prod_Name" />
+                </td>
+                <td>
+                    <a href="/Admin/Edit/@item.id"  class="btn btn-outline-info mr-4 "><i class="fas fa-pen"></i></a>
+                    <a href="/Admin/Delete/@item.id" data-id="@item.id" data-name="@item.Prod_Name" class="btn btn-outline-danger adminDeleteProd"><i class="fas fa-trash-alt"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Admin/Create" class="btn btn-success w-25 font-weight-bold"><i class="fas fa-plus"></i> Add New Prodcut</a>

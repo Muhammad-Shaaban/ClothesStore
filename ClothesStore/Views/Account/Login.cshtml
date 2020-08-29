@@ -1,0 +1,69 @@
+﻿@using ClothesStore.Models
+@model LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">@Html.ActionLink("Home", "Index", "Home", null, null)</li>
+    <li class="breadcrumb-item text-muted active" aria-current="page">Login</li>
+  </ol>
+</nav>
+
+<div class="container loginPgae mt-5">
+    <div class="row pb-5">
+        <div class="col-md-6 pr-5">
+            <section id="loginForm">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+
+                    <h1 class="text-uppercase font-weight-bold text-center mb-5">@ViewBag.Title</h1>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group ml-3">
+                                <div class="checkbox text-muted">
+                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                    @Html.LabelFor(m => m.RememberMe)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="margin-top: -5px;">
+                            <input type="submit" value="Sign in" class="btn font-weight-bold" />
+                        </div>
+                    </div>
+
+                }
+
+                @Html.ActionLink("Forgot your password?", "", null, new { @class = "text-muted d-block text-center mt-4 font-weight-bold" })
+            </section>
+        </div>
+        <div class="col-md-6 pl-5 position-relative rightSide">
+            <h2 class="h4 text-uppercase font-weight-bold" style="color: #213C53;margin-top: 30%;font-size: 27px">don't have an account yet ?</h2>
+            <p class="font-weight-bold mt-3" style="color: #213C53">You can create an account now and start shopping.</p>
+            <p class="font-weight-bold" style="color:#213C53; margin-top: -10px">It's very easy</p>
+
+            @Html.ActionLink("create an account", "Register", "Account", null, new { @class="btn text-uppercase rgisterBtn"})
+        </div>
+    </div>
+
+    @Html.Partial("_contact")
+</div>
+

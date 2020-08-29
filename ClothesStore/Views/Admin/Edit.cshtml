@@ -1,0 +1,50 @@
+﻿@model ClothesStore.Models.Product
+
+@{
+    Layout = "~/Views/Shared/_newLyout.cshtml";
+    ViewBag.Title = "Edit Product";
+}
+
+<h1 class="mt-5 mb-5 text-center font-weight-bold text-muted">Edit Prodcut</h1>
+<hr class="mb-5" />
+
+@using (Html.BeginForm("Edit", "Admin", FormMethod.Post, new { @class = "w-75 mx-auto", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Prod_Name)
+        @Html.EditorFor(model => model.Prod_Name, new { htmlAttributes = new {@class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Prod_Name, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.CategoryId)
+        @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class= "form-control" })
+        @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.sizeId)
+        @Html.DropDownList("sizeId", null, htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.sizeId, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Prod_Price)
+        @Html.EditorFor(model => model.Prod_Price, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Prod_Price , "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Prod_Quantity)
+        @Html.EditorFor(model => model.Prod_Quantity, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Prod_Quantity, "", new { @class = "text-danger" })
+    </div>
+    <div class="custom-file">
+        <input type="file" name="upload" class="custom-file-input" />
+        <input type="hidden" name="Prod_Image" value="@Model.Prod_Image" />
+        @Html.LabelFor(model => model.Prod_Image, new  { @class = "custom-file-label mt-3" } )
+        @Html.ValidationMessageFor(model => model.Prod_Image, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Edit" class="btn btn-outline-success w-25 d-block mt-5" />
+    </div>
+}

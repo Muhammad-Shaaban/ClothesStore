@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form id="form1" runat="server">
+    <div>
+
+    </div>
+</form>
+
+<form action="https://gw2.mcpayment.net:8443/api/v6/payment/" method="post" name='buyCredits' id='buyCredits'>
+    <input type='hidden' name='cmd' value='_xclick'>
+    <input type='hidden' name='mcptid' value='3120060001'>
+    <input type='hidden' name='currency' value='USD'>
+    <input type='hidden' name='amount' value='1.00'>
+    <input type='hidden' name='return' value='https://gw2.sandbox.mcpayment.net'>
+</form>
+<script>
+    document.getElementById('buyCredits').submit();
+</script>
